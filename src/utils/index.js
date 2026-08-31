@@ -1,9 +1,10 @@
 const compareTime = require('./helpers/datetimehelpers');
+const { SuccessResponse, ErrorResponse, enums } = require('./common');
 
 module.exports = {
     AppError: require('./errors'),
-    SuccessResponse: require('./common'),   
-    ErrorResponse: require('./common'),
-    compareTime : require('./helpers/datetimehelpers'),
-    enums: require('./common')
+    SuccessResponse,
+    ErrorResponse,
+    compareTime,
+    enums
 };

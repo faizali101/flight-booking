@@ -9,8 +9,11 @@ const BOOKING_STATUS = {
     BOOKED: 'booked',
     CANCELLED: 'cancelled',
     INITIATED: 'initiated',
-    PENDING: 'pending....'
+    PENDING: 'pending'
 
 }
 
-module.exports = BOOKING_STATUS;
+module.exports = {
+    SEAT_TYPE,
+    BOOKING_STATUS
+};
