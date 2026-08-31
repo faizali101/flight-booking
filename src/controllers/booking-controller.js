@@ -6,27 +6,25 @@ const {SuccessResponse, ErrorResponse} = require('../utils/common');
  
 async function createBooking(req, res) {
     try {
-        console.log('inside controller');
-        console.log(req.body.flightId);
+        console.log(req.body);
         const response = await BookingService.createBooking({
-           flightId: req.body.flightId
+           flightId: req.body.flightId,
+           userId: req.body.userId,
+           noOfSeats: req.body.noOfSeats
         });
-        const successResponse = { ...SuccessResponse, data: response };
+        SuccessResponse.data = response;
         return res
             .status(StatusCodes.OK) 
-            .json(successResponse);
+            .json(SuccessResponse);
     } catch (error) {
-        console.log(error);
-        const errorResponse = { ...ErrorResponse, message: error.message };
+        console.log('catching controller');
+        ErrorResponse.error = error;
         return res
             .status(StatusCodes.INTERNAL_SERVER_ERROR)
-            .json(error);
+            .json(ErrorResponse);
     }
 }
  
-
-
-
 
 module.exports= { createBooking}
 
